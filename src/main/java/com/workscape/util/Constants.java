@@ -44,9 +44,4 @@ public final class Constants {
 	public static final Wheel[] BIG_WHEELS = { FRONT_PLASTIC_WHEEL, REAR_LEFT_PLASTIC_WHEEL, REAR_RIGHT_PLASTIC_WHEEL };
 	public static final Wheel[] TWO_WHEELS = { FRONT_METAL_WHEEL, REAR_METAL_WHEEL };
 	public static final Wheel[] CAR_WHEELS = { FRONT_RIGHT_WHEEL, FRONT_LEFT_WHEEL, REAR_RIGHT_WHEEL, REAR_LEFT_WHEEL };
-	
-	/*public static final ArrayList<Wheel> BIG_WHEELS_LIST = new ArrayList<Wheel>(Arrays.asList(BIG_WHEELS));
-	public static final ArrayList<Wheel> BICYCLE_WHEELS_LIST = new ArrayList<Wheel>(Arrays.asList(BICYCLE_WHEELS));
-	public static final ArrayList<Wheel> MOTORCYCLE_WHEELS_LIST = new ArrayList<Wheel>(Arrays.asList(MOTORCYCLE_WHEELS));
-	public static final ArrayList<Wheel> CAR_WHEELS_LIST = new ArrayList<Wheel>(Arrays.asList(CAR_WHEELS));*/
 }
