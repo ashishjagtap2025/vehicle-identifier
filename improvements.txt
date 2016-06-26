@@ -1,0 +1,12 @@
+1. In ReportWriter class we should APIs like OpenCSV to read/write csv file.
+2. We can use Reporting APIs to show the reports instate of showing it in csv file. Like JasperReports or iReport.
+3. Instate of using sysout statements we should use logging framework like log4j.
+4. We need to add test resources into resource folder under test package.
+5. We can create multiple classes for vehicle Types to achieve IS-A relationship between the classes like Car is a Vehicle etc.
+6. As we need to compare Vehicle list and Wheel list thus we need to Write common method to compare list of generic type.(implemented)
+7. Accept XML file and report file path as command line parameters while executing the jar file. (implemented)
+8. Remove ArrayList<Wheel> from Constants class it will consume unnecessary memory. (implemented)
+
+NOTE : Some of the points already covered in the given source code :)
+
+https://github.com/ashishjagtap2025/vehicle-identifier.git

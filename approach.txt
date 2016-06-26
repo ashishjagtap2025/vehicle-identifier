@@ -1,0 +1,15 @@
+1. Select XML parsing API
+As per the problem statement we need to only read the XML file and considering memory consumption I decided to use SAX parser. 
+while running the application on production environment we should be careful about the memory consumption.
+
+2. Reporting Tool
+I chose to use CSV file for report generation as it is easy and faster way of generating the Reports :)
+
+3. Unit Testing Tool
+JUnit is a unit testing framework for the Java programming language. 
+
+4. Create executable Jar
+Need to create executable Jar file application so that user can easily run this application.
+
+5. GIT Repository
+Created the git repository for project and commit the code.
