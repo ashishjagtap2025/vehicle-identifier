@@ -18,6 +18,7 @@ import junit.framework.Assert;
  */
 public class VehicleIdentifierTest {
 	
+	private static final String FILEPATH = VehicleIdentifier.class.getClassLoader().getResource("vehicles.xml").getFile();
 	private List<Vehicle> expectedVehicles;
 
 	@Before
@@ -60,8 +61,8 @@ public class VehicleIdentifierTest {
 	 */
 	@Test
 	public void testApp() {
-		VehicleHandler vehicleHandler = VehicleIdentifier.identifyVehicle();
+		VehicleHandler vehicleHandler = VehicleIdentifier.identifyVehicle(FILEPATH);
 		Boolean result = Utils.equalLists(expectedVehicles, vehicleHandler.getVehicles());
-		Assert.assertEquals("Failed...", Boolean.TRUE, result);
+		Assert.assertEquals("Test failed please check the XML file", Boolean.TRUE, result);
 	}
 }

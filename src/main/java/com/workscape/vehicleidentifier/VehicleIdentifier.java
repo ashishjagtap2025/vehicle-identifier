@@ -16,27 +16,37 @@ import com.workscape.util.ReportWriter;
  */
 public class VehicleIdentifier {
 
-	private static final String FILEPATH = VehicleIdentifier.class.getClassLoader().getResource("vehicles.xml").getFile();
+	//private static final String FILEPATH = VehicleIdentifier.class.getClassLoader().getResource("vehicles.xml").getFile();
 	
 	public static void main(String[] args) {
-		VehicleHandler handler = identifyVehicle();
-		ReportWriter.writeReport(handler);
+		String xmlFilePath = null;
+		String csvFile = null;
+		if(args.length != 0) {
+			xmlFilePath = args[0];
+			csvFile = args[1];
+			VehicleHandler handler = identifyVehicle(xmlFilePath);
+			ReportWriter.writeReport(handler, csvFile);
+		} else {
+			System.err.println("Please specify the path of XML anf report file.");
+		}
 	}
 
-	public static VehicleHandler identifyVehicle() {
+	public static VehicleHandler identifyVehicle(String filePath) {
 		VehicleHandler handler = null;
-		try {
-			SAXParserFactory factory = SAXParserFactory.newInstance();
-			SAXParser parser = factory.newSAXParser();
-			handler = new VehicleHandler();
-			parser.parse(FILEPATH, handler);
-		} catch (ParserConfigurationException e) {
-			System.err.println("ParserConfig error");
-		} catch (SAXException e) {
-			System.err.println("SAXException : xml not well formed");
-		} catch (IOException e) {
-			System.err.println("IO error");
-		}
+		if(filePath != null && !"".equals(filePath)) {
+			try {
+				SAXParserFactory factory = SAXParserFactory.newInstance();
+				SAXParser parser = factory.newSAXParser();
+				handler = new VehicleHandler();
+				parser.parse(filePath, handler);
+			} catch (ParserConfigurationException e) {
+				System.err.println("ParserConfig error");
+			} catch (SAXException e) {
+				System.err.println("SAXException : xml not well formed");
+			} catch (IOException e) {
+				System.err.println("IO error");
+			}//End of 
+		} 
 		return handler;
-	}
+	}//End of identifyVehicle() Method.
 }// End of VehicleIdentifier Class.

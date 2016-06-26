@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.util.Map;
 import com.workscape.model.Vehicle;
 import com.workscape.parser.VehicleHandler;
-import com.workscape.vehicleidentifier.VehicleIdentifier;
 
 /**
  * @author Ashish
@@ -18,16 +17,15 @@ public class ReportWriter {
 	
 	private static final String FIRST_REPORT_HEADER = "VEHICLE_ID,VEHICLE_TYPE";
 	private static final String SECOND_REPORT_HEADER = "VEHICLE_TYPE,NO_OF_VEHICLES";
-	private static final String FILEPATH = VehicleIdentifier.class.getClassLoader().getResource("report.csv").getFile();
 	private static final String COMMA_DELIMITER = ",";
 	private static final String NEW_LINE_SEPARATOR = "\n";
 	
-	public static void writeReport(VehicleHandler handler) {
-		System.out.println("Writing report in " + FILEPATH + " file");
+	public static void writeReport(VehicleHandler handler, String filePath) {
 		FileWriter fileWriter = null;
-		if(handler != null && handler.getVehicles().size() != 0) {
+		if(filePath != null && handler != null && handler.getVehicles().size() != 0) {
+			System.out.println("Writing report in " + filePath + " file");
 			try {
-				fileWriter = new FileWriter(FILEPATH);
+				fileWriter = new FileWriter(filePath);
 				// Write the CSV file header
 				fileWriter.append(FIRST_REPORT_HEADER.toString());
 				// Add a new line separator after the header
@@ -63,8 +61,10 @@ public class ReportWriter {
 				}
 			}//End of try-catch-finally block.
 		} else {
-			System.err.println(
-					"Unable to generating report for VehicleIdentifier Application as Vehicle list is null or empty.");
+			if(filePath == null) 
+				System.err.println("Unable to generating report for VehicleIdentifier Application as report file path is null or empty.");
+			else 
+				System.err.println("Unable to generating report for VehicleIdentifier Application as Vehicle list is null or empty.");
 		}//End of if-else block.
 	}//End of writeReport() Method.
 }
