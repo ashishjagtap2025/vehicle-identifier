@@ -16,8 +16,6 @@ import com.workscape.util.ReportWriter;
  */
 public class VehicleIdentifier {
 
-	//private static final String FILEPATH = VehicleIdentifier.class.getClassLoader().getResource("vehicles.xml").getFile();
-	
 	public static void main(String[] args) {
 		String xmlFilePath = null;
 		String csvFile = null;

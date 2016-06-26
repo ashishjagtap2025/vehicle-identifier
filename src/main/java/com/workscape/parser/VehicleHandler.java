@@ -20,6 +20,8 @@ import com.workscape.util.Constants;
 
 /**
  * @author Ashish
+ * <pre>This class will be used to parse XML file into Java Objects.</pre>
+ * We use SAX parser as we just need to read the XML file and considering memory constraint.
  */
 public class VehicleHandler extends DefaultHandler {
 	private Map<String, Integer> summary;
@@ -27,7 +29,6 @@ public class VehicleHandler extends DefaultHandler {
 	private Vehicle vehicle;
 	private Frame frame;
 	private Wheel wheel;
-	
 	private Boolean isId = Boolean.FALSE;
 	private Boolean isFrame = Boolean.FALSE;
 	private Boolean isMaterial = Boolean.FALSE;
@@ -117,18 +118,4 @@ public class VehicleHandler extends DefaultHandler {
 	public Map<String, Integer> getSummary() {
 		return summary;
 	}
-
-	public void printReport() {
-		System.out.println("--- Vehicle Report ---");
-		
-		System.out.println("| VEHICLE ID \t| VEHICLE TYPE |");
-		for (Vehicle vehicle : vehicles) {
-			System.out.println("| " + vehicle.getVehicleId() + " \t| " + vehicle.getType().getName() + "|");
-		}
-		
-		System.out.println("--- Summary Report ---");
-		for (Map.Entry<String, Integer> entry : summary.entrySet()) {
-			System.out.println(entry.getKey() + " ->  " + entry.getValue() + " Vehicles.");
-		}
-	}
-}
+}//End of VehicleHandler Class.
