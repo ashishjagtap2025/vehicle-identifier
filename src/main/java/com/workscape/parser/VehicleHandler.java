@@ -114,6 +114,10 @@ public class VehicleHandler extends DefaultHandler {
 		return vehicles;
 	}
 	
+	public Map<String, Integer> getSummary() {
+		return summary;
+	}
+
 	public void printReport() {
 		System.out.println("--- Vehicle Report ---");
 		

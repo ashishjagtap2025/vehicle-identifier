@@ -9,6 +9,7 @@ import javax.xml.parsers.SAXParserFactory;
 import org.xml.sax.SAXException;
 
 import com.workscape.parser.VehicleHandler;
+import com.workscape.util.ReportWriter;
 
 /**
  * Hello world!
@@ -19,10 +20,7 @@ public class VehicleIdentifier {
 	
 	public static void main(String[] args) {
 		VehicleHandler handler = identifyVehicle();
-		if(handler != null)
-			handler.printReport();
-		else
-			System.err.println("Error while ");
+		ReportWriter.writeReport(handler);
 	}
 
 	public static VehicleHandler identifyVehicle() {
